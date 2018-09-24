@@ -1,15 +1,24 @@
 package s3.api.users.cadastro.cadastros.paciente;
 
+import java.util.HashMap;
+import java.util.List;
+import model.bean.EnderecoBean;
+import model.bean.TelefoneBean;
+import model.bean.info.MedicoInfo;
+import model.bean.info.PacienteInfo;
+import model.bean.info.UserInfo;
 import s3.api.users.cadastro.cadastros.CadRequest;
 
 public class CadPacRequest extends CadRequest {
   
   
-  public CadPacRequest(String nome, String sobrenome, String cpf, String dataNascimento, String email, String senha) {
+  public CadPacRequest(HashMap<UserInfo, Object> infosUser, HashMap<MedicoInfo, Object> infosMed,
+      HashMap<PacienteInfo, Object> infosPac, List<EnderecoBean> enderecos,
+      List<TelefoneBean> telefones) {
     
-    super(nome, sobrenome, cpf, dataNascimento, email, senha);
+    super(infosUser, infosMed, infosPac, enderecos, telefones);
   }
   
-  
+
   public CadPacRequest() {}
 }

@@ -59,10 +59,6 @@ public class SelecionarHandler extends Handler
 
     if (tipo.equals(SELECIONAR_DADOS_USUARIO))
       return new SelUseHandler().handleRequest(g.fromJson(json, SelUseRequest.class), context);
-
-    System.out.println(tipo.equals(VERIFICAR));
-    System.out.println(input.getValores().get("email"));
-    System.out.println(input.getValores().get("cpf"));
     
     if (tipo.equals(VERIFICAR)) {
       

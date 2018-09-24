@@ -1,71 +1,105 @@
 package s3.api.users.cadastro.cadastros;
 
+import java.util.HashMap;
+import java.util.List;
+import model.bean.EnderecoBean;
+import model.bean.TelefoneBean;
+import model.bean.info.MedicoInfo;
+import model.bean.info.PacienteInfo;
+import model.bean.info.UserInfo;
 import s3.api.users.cadastro.CadastroRequest;
 
 public class CadRequest extends CadastroRequest {
 
   
-  protected String nome, sobrenome, cpf, dataNascimento, email, senha;
-
-  
-  public CadRequest(String nome, String sobrenome, String cpf, String dataNascimento, String email, String senha) {
-    
-    this.nome = nome;
-    this.sobrenome = sobrenome;
-    this.cpf = cpf;
-    this.dataNascimento = dataNascimento;
-    this.email = email;
-    this.senha = senha;
-  }
+  private HashMap<UserInfo, Object> infosUser;
+  private HashMap<MedicoInfo, Object> infosMed;
+  private HashMap<PacienteInfo, Object> infosPac;
+  private List<EnderecoBean> enderecos;
+  private List<TelefoneBean> telefones;
   
   
-  public String getNome() {
-    return nome;
+  public CadRequest(HashMap<UserInfo, Object> infosUser, HashMap<MedicoInfo, Object> infosMed,
+      HashMap<PacienteInfo, Object> infosPac, List<EnderecoBean> enderecos,
+      List<TelefoneBean> telefones) {
+    super();
+    this.infosUser = infosUser;
+    this.infosMed = infosMed;
+    this.infosPac = infosPac;
+    this.enderecos = enderecos;
+    this.telefones = telefones;
   }
 
-  public void setNome(String nome) {
-    this.nome = nome;
+
+  public HashMap<UserInfo, Object> getInfosUser() {
+    return infosUser;
   }
 
-  public String getSobrenome() {
-    return sobrenome;
+
+
+
+  public void setInfosUser(HashMap<UserInfo, Object> infosUser) {
+    this.infosUser = infosUser;
   }
 
-  public void setSobrenome(String sobrenome) {
-    this.sobrenome = sobrenome;
+
+
+
+  public HashMap<MedicoInfo, Object> getInfosMed() {
+    return infosMed;
   }
 
-  public String getCpf() {
-    return cpf;
+
+
+
+  public void setInfosMed(HashMap<MedicoInfo, Object> infosMed) {
+    this.infosMed = infosMed;
   }
 
-  public void setCpf(String cpf) {
-    this.cpf = cpf;
+
+
+
+  public HashMap<PacienteInfo, Object> getInfosPac() {
+    return infosPac;
   }
 
-  public String getDataNascimento() {
-    return dataNascimento;
+
+
+
+  public void setInfosPac(HashMap<PacienteInfo, Object> infosPac) {
+    this.infosPac = infosPac;
   }
 
-  public void setDataNascimento(String dataNascimento) {
-    this.dataNascimento = dataNascimento;
+
+
+
+  public List<EnderecoBean> getEnderecos() {
+    return enderecos;
   }
 
-  public String getEmail() {
-    return email;
+
+
+
+  public void setEnderecos(List<EnderecoBean> enderecos) {
+    this.enderecos = enderecos;
   }
 
-  public void setEmail(String email) {
-    this.email = email;
+
+
+
+  public List<TelefoneBean> getTelefones() {
+    return telefones;
   }
 
-  public String getSenha() {
-    return senha;
+
+
+
+  public void setTelefones(List<TelefoneBean> telefones) {
+    this.telefones = telefones;
   }
 
-  public void setSenha(String senha) {
-    this.senha = senha;
-  }
-  
+
+
+
   public CadRequest() {}
 }

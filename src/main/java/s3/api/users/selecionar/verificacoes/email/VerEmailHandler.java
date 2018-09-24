@@ -28,7 +28,12 @@ public class VerEmailHandler extends Handler implements RequestHandler<VerEmailR
       
       ResultSet rs = sf.withTabela(Tabela.User).withTipo(sf.SELECT).withInfos(UserInfo.ID).addCondition(UserInfo.Email).addConditionValue(email).build().executeQuery();
       
-      boolean valido = !rs.next();
+      boolean valido = rs.next() ? false : true;
+      
+      log("A validade do email informado é : " + valido);
+      
+      if (!valido)
+        throw new RuntimeException("404");
       
       response.setValido(valido);
     } catch (SQLException e) {
@@ -38,7 +43,7 @@ public class VerEmailHandler extends Handler implements RequestHandler<VerEmailR
       
       log(System.getenv("SQLException") + ": " + e.getMessage());
       
-      return response;
+      throw new RuntimeException("404");
     }
     
     response.setSucesso(true);

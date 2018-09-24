@@ -8,13 +8,16 @@ import s3.api.users.cadastro.cadastros.medico.CadMedHandler;
 import s3.api.users.cadastro.cadastros.medico.CadMedRequest;
 import s3.api.users.cadastro.cadastros.paciente.CadPacHandler;
 import s3.api.users.cadastro.cadastros.paciente.CadPacRequest;
+import s3.api.users.cadastro.cadastros.usuario.CadUserHandler;
+import s3.api.users.cadastro.cadastros.usuario.CadUserRequest;
 
 public class CadastroHandler extends Handler
     implements RequestHandler<CadastroRequest, CadastroResponse> {
 
 
   private final static String CADASTRO_MEDICO = System.getenv("CADASTRAR_MEDICO"),
-                              CADASTRO_PACIENTE = System.getenv("CADASTRAR_PACIENTE");
+                              CADASTRO_PACIENTE = System.getenv("CADASTRAR_PACIENTE"),
+                              CADASTRO_USUARIO = System.getenv("CADASTRAR_USUARIO");
 
 
   @Override
@@ -24,12 +27,17 @@ public class CadastroHandler extends Handler
 
     CadastroResponse response = new CadastroResponse();
     
-    Gson g = new Gson();
+    Gson g = new Gson().newBuilder().setPrettyPrinting().create();
     String json = g.toJson(input.getValores());
 
+    log("Dados recebidos: " + json);
+    
     log("Redirecionando request...");
 
     String tipo = input.getTipo();
+    
+    if (tipo.equals(CADASTRO_USUARIO))
+      return new CadUserHandler().handleRequest(g.fromJson(json, CadUserRequest.class), context);
     
     if (tipo.equals(CADASTRO_MEDICO))
       return new CadMedHandler().handleRequest(g.fromJson(json, CadMedRequest.class), context);

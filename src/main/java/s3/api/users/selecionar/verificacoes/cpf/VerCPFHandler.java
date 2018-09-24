@@ -36,6 +36,11 @@ public class VerCPFHandler extends Handler implements RequestHandler<VerCPFReque
         }
       }
       
+      log("A validade do cpf informado é : " + valido);
+      
+      if (!valido)
+        throw new RuntimeException("404");
+      
       response.setValido(valido);  
     } catch (SQLException e) {
       
@@ -44,7 +49,7 @@ public class VerCPFHandler extends Handler implements RequestHandler<VerCPFReque
       
       log(System.getenv("SQLException") + ": " + e.getMessage());
       
-      return response;
+      throw new RuntimeException("404");
     }
     
     response.setSucesso(true);

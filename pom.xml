@@ -3,10 +3,10 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.amazonaws.lambda</groupId>
-	<artifactId>demo</artifactId>
-	<version>1.0.0</version>
-	<packaging>jar</packaging>
+	<groupId>com.s3</groupId>
+	<artifactId>lambdas</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
 
 	<build>
 		<plugins>
@@ -90,6 +90,16 @@
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<version>8.0.12</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.s3</groupId>
+			<artifactId>s3-database</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/lib/S3BD.jar</systemPath>
+			<type>jar</type>
+			<optional>true</optional>
 		</dependency>
 
 	</dependencies>

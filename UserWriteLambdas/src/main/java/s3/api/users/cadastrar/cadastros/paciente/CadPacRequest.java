@@ -16,7 +16,7 @@ public class CadPacRequest extends CadRequest {
       HashMap<PacienteInfo, Object> infosPac, List<EnderecoBean> enderecos,
       List<TelefoneBean> telefones) {
     
-    super(infosUser, infosMed, infosPac, enderecos, telefones);
+    super(infosUser, null, infosPac, enderecos, telefones, null);
   }
   
 

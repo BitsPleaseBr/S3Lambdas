@@ -32,7 +32,7 @@ public class CadMedHandler extends Handler implements RequestHandler<CadMedReque
     
     try {
       
-      log("Cadastrando médico...");
+      log("Cadastrando dados médicos...");
       
       id = new MedicoDao().cadastrar(mb);
       

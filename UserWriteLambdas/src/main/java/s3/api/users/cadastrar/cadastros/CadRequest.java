@@ -3,6 +3,7 @@ package s3.api.users.cadastrar.cadastros;
 import java.util.HashMap;
 import java.util.List;
 import model.bean.EnderecoBean;
+import model.bean.EspecialidadeBean;
 import model.bean.TelefoneBean;
 import model.bean.info.MedicoInfo;
 import model.bean.info.PacienteInfo;
@@ -17,17 +18,19 @@ public class CadRequest extends CadastroRequest {
   private HashMap<PacienteInfo, Object> infosPac;
   private List<EnderecoBean> enderecos;
   private List<TelefoneBean> telefones;
+  private List<EspecialidadeBean> especialidades;
   
   
   public CadRequest(HashMap<UserInfo, Object> infosUser, HashMap<MedicoInfo, Object> infosMed,
       HashMap<PacienteInfo, Object> infosPac, List<EnderecoBean> enderecos,
-      List<TelefoneBean> telefones) {
+      List<TelefoneBean> telefones, List<EspecialidadeBean> especialidades) {
     super();
     this.infosUser = infosUser;
     this.infosMed = infosMed;
     this.infosPac = infosPac;
     this.enderecos = enderecos;
     this.telefones = telefones;
+    this.especialidades = especialidades;
   }
 
 
@@ -99,6 +102,14 @@ public class CadRequest extends CadastroRequest {
   }
 
 
+  public List<EspecialidadeBean> getEspecialidades() {
+    return especialidades;
+  }
+
+
+  public void setEspecialidades(List<EspecialidadeBean> especialidades) {
+    this.especialidades = especialidades;
+  }
 
 
   public CadRequest() {}

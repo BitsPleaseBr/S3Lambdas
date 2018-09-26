@@ -6,6 +6,7 @@ import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
 import control.crypto.PswdStorage;
 import model.bean.EnderecoBean;
+import model.bean.EspecialidadeBean;
 import model.bean.MedicoBean;
 import model.bean.PacienteBean;
 import model.bean.TelefoneBean;
@@ -64,6 +65,13 @@ public class CadUserHandler extends Handler
       for (Entry<MedicoInfo, Object> entrada : input.getInfosMed().entrySet())
         mb.setInfo(entrada.getKey(), entrada.getValue());
 
+      if (input.getEspecialidades() != null) {
+        
+        log("Definindo especialidades do médico...");
+        for (EspecialidadeBean especialidade : input.getEspecialidades())
+          mb.addEspecialidade(especialidade);
+      }
+      
       try {
 
         log("Tentando cadastrar médico...");

@@ -28,9 +28,15 @@ public class CadastroHandler extends Handler
     CadastroResponse response = new CadastroResponse();
     
     Gson g = new Gson().newBuilder().setPrettyPrinting().create();
+    
+    String senha = (String) input.getValores().get("Senha");
+    input.getValores().put("Senha", null);
+    
     String json = g.toJson(input.getValores());
 
     log("Dados recebidos: " + json);
+    
+    input.getValores().put("Senha", senha);
     
     log("Redirecionando request...");
 

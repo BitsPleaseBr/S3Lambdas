@@ -31,6 +31,7 @@ public class SelUseHandler extends Handler
         response.addMessage("Falha", "Não foi possível encontrar o usuário");
       } else {
         
+        ub.setInfo(UserInfo.Senha, null);
         log("Dados obtidos com sucesso!");
         response.setInfos(ub.getInfosUser());
       }

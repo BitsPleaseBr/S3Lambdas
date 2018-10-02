@@ -28,12 +28,13 @@ public class CadUserHandler extends Handler
 
     CadUserResponse response = new CadUserResponse();
 
-    
     UserBean ub = new UserBean() {};
-
+    
     log("Definindo informações básicas do usuário...");
-    for (Entry<UserInfo, Object> entrada : input.getInfosUser().entrySet())
+    for (Entry<UserInfo, Object> entrada : input.getInfosUser().entrySet()) {
+
       ub.setInfo(entrada.getKey(), entrada.getValue());
+    }
 
     String senha = input.getInfosUser().get(UserInfo.Senha).toString();
     String email = input.getInfosUser().get(UserInfo.Email).toString();
@@ -45,14 +46,14 @@ public class CadUserHandler extends Handler
       for (EnderecoBean endereco : input.getEnderecos())
         ub.addEndereco(endereco);
     }
-    
+
     if (input.getTelefones() != null) {
       log("Definindo telefones do usuário...");
       for (TelefoneBean telefone : input.getTelefones())
         ub.addTelefone(telefone);
     }
-    
-    
+
+
     if ((double) input.getInfosUser().get(UserInfo.Tipo) == 2) {
 
       MedicoBean mb = new MedicoBean();
@@ -60,18 +61,18 @@ public class CadUserHandler extends Handler
       mb.getInfosUser().putAll(ub.getInfosUser());
       mb.addEnderecos(ub.getEnderecos());
       mb.addTelefones(ub.getTelefones());
-      
+
       log("Definindo informações médicas do médico...");
       for (Entry<MedicoInfo, Object> entrada : input.getInfosMed().entrySet())
         mb.setInfo(entrada.getKey(), entrada.getValue());
 
       if (input.getEspecialidades() != null) {
-        
+
         log("Definindo especialidades do médico...");
         for (EspecialidadeBean especialidade : input.getEspecialidades())
           mb.addEspecialidade(especialidade);
       }
-      
+
       try {
 
         log("Tentando cadastrar médico...");

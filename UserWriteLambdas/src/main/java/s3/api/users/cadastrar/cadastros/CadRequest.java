@@ -24,7 +24,6 @@ public class CadRequest extends CadastroRequest {
   public CadRequest(HashMap<UserInfo, Object> infosUser, HashMap<MedicoInfo, Object> infosMed,
       HashMap<PacienteInfo, Object> infosPac, List<EnderecoBean> enderecos,
       List<TelefoneBean> telefones, List<EspecialidadeBean> especialidades) {
-    super();
     this.infosUser = infosUser;
     this.infosMed = infosMed;
     this.infosPac = infosPac;
@@ -33,79 +32,49 @@ public class CadRequest extends CadastroRequest {
     this.especialidades = especialidades;
   }
 
-
   public HashMap<UserInfo, Object> getInfosUser() {
     return infosUser;
   }
 
-
-
-
   public void setInfosUser(HashMap<UserInfo, Object> infosUser) {
     this.infosUser = infosUser;
   }
-
-
-
-
+  
   public HashMap<MedicoInfo, Object> getInfosMed() {
     return infosMed;
   }
-
-
-
 
   public void setInfosMed(HashMap<MedicoInfo, Object> infosMed) {
     this.infosMed = infosMed;
   }
 
-
-
-
   public HashMap<PacienteInfo, Object> getInfosPac() {
     return infosPac;
   }
-
-
-
 
   public void setInfosPac(HashMap<PacienteInfo, Object> infosPac) {
     this.infosPac = infosPac;
   }
 
-
-
-
   public List<EnderecoBean> getEnderecos() {
     return enderecos;
   }
-
-
-
 
   public void setEnderecos(List<EnderecoBean> enderecos) {
     this.enderecos = enderecos;
   }
 
-
-
-
   public List<TelefoneBean> getTelefones() {
     return telefones;
   }
-
-
-
 
   public void setTelefones(List<TelefoneBean> telefones) {
     this.telefones = telefones;
   }
 
-
   public List<EspecialidadeBean> getEspecialidades() {
     return especialidades;
   }
-
 
   public void setEspecialidades(List<EspecialidadeBean> especialidades) {
     this.especialidades = especialidades;
